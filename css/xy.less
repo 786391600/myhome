@@ -1,0 +1,46 @@
+@lie:12;
+.container-fluid{
+	width:100%;
+}
+.container-fluid>.row{
+	width:100%;
+}
+.container-fluid>.row:before{
+	content: '';
+	display: block;
+	clear: both;
+}
+.loop(@i:1) when (@i<=@lie){
+
+	.container-fluid>.row>.col-x-@{i}{
+	width:@i/12*100%;
+	float: left;
+}
+.loop(@i+1);
+}
+.loop;
+
+@media screen and (min-width: 800px){
+	.loop(@i:1) when (@i<=12){
+
+		.container-fluid>.row>.col-z-@{i}{
+			width:@i/12*100%;
+			float: left;
+		}
+		.loop(@i+1);
+	}
+	.loop;
+}
+
+@media screen and (min-width: 1000px){
+	.loop(@i:1) when (@i<=12){
+
+		.container-fluid>.row>.col-d-@{i}{
+			width:@i/12*100%;
+			float: left;
+		}
+		.loop(@i+1);
+	}
+	.loop;
+}
+

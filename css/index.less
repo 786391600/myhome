@@ -1,0 +1,9 @@
+.bnxx (@i:1) when (@i<=8){
+  .bn@{i}{
+    background: url("../img/bn@{i}.png");
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+  }
+  .bnxx(@i+1);
+}
+.bnxx;
