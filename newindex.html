@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>个人主页</title>
+	<link rel="stylesheet" href="css/jquery.fullPage.css" />
+    <script src='js/jquery.js'></script>
+    <script src='js/jquery.fullPage.js'></script>
+</head>
+<style>
+ body{
+ 	padding: 0;
+ 	margin: 0;
+ }
+ h3{
+ 	margin: 0;
+ }
+ .box{
+ 	position: fixed;
+ 	top:0;
+ 	width: 500px;
+ 	height: 80px;
+ 	background: red;
+ }
+</style>
+<script>
+	$(function(){
+		$('#dowebok').fullpage({
+		'verticalCentered': false,
+        'css3': true,
+        'sectionsColor': ['#ccc', '#00FF00', '#254587', '#695684'],
+         anchors: ['page1', 'page2', 'page3', 'page4'],
+        'navigation': true,
+        'navigationPosition': 'right',
+        'navigationTooltips': ['fullPage.js', 'Powerful', 'Amazing', 'Simple'],
+         menu:'#mymenu',
+         
+		 });
+		 $(window).click(function(){
+		 	
+		 })
+		 
+		
+	})
+</script>
+<body>
+	<div id="dowebok">
+    <div class="section">
+        <h3>第一屏</h3>
+    </div>
+    <div class="section">
+        <h3>第二屏</h3>
+    </div>
+    <div class="section">
+        <h3>第三屏</h3>
+    </div>
+    <div class="section">
+        <h3>第四屏</h3>
+    </div>
+</div>
+<div class="box">
+	<ul id='mymenu'>
+		<li data-menuanchor="page1" class="menuList"><a href="#page1">首页</a></li>
+        <li data-menuanchor="page2" class="menuList"><a href="#page2">作品</a></li>
+        <li data-menuanchor="page3" class="menuList"><a href="#page3">技能</a></li>
+        <li data-menuanchor="page4" class="menuList"><a href="#page4">联系方式</a></li>
+	</ul>
+</div>
+</body>
+</html>

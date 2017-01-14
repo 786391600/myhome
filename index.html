@@ -6,6 +6,7 @@
 <!--     <link rel="stylesheet" href="css/index.css"> -->
     <link rel="stylesheet" href="css/xy.css">
     <link rel="stylesheet" href="css/less.css">
+    <link rel="stylesheet" href="css/icon.css">
     <script src="js/jquery.js"></script>
 </head>
 <style>
@@ -24,7 +25,7 @@
     }
     .header{
         height:100%;
-        background: url("img/headerbk.png") no-repeat #FFCF05;
+        background: url("img/headerbk.png") no-repeat #7FCED3;
         background-position: bottom;
         float: left;
         position: absolute;
@@ -212,6 +213,71 @@
     text-shadow:1px 1px 2px rgba(0,0,0,0.3);
     margin-bottom: 30px;
   }
+  /*联系我*/
+  .lxw{
+    height: 300px;
+    background: red;
+    background-image: url(img/s03_bg.png);
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+  }
+  .lxwleft{
+    height: 100%;
+    background-image: url(img/contact_me_cn.png),url(img/s04_print1.png);
+    background-size: 80%,80%;
+    background-repeat: no-repeat,no-repeat;
+    border-right: 2px solid white;
+    box-sizing:border-box;
+  }
+  .lxwright{
+    height: 100%;
+  }
+  .head{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 25px;
+    border: 4px solid white;
+    margin-left: 30px;
+    box-shadow: 2px 2px 1px 1px rgba(0,0,0,0.5);
+    float:left;
+    /* margin-left: 180px;*/
+        background: url(img/head.jpg);
+        background-position: -200px 0;
+  }
+  .tel{
+    width: 500px;
+    height: 100%;
+    float: left;
+    margin-left: 50px;
+    padding-bottom: 5px;
+    box-sizing:border-box;
+  }
+  .tel h1{
+    margin-top: 35px;
+  }
+  .phone{
+    color:white;
+    text-shadow:1px 1px 2px rgba(0,0,0,0.3);
+    font-family:iconfont;
+  }
+  .qq{
+    color:white;
+    text-shadow:1px 1px 2px rgba(0,0,0,0.3);
+    font-family: iconfont;
+  }
+  .email{
+    color:white;
+    text-shadow:1px 1px 2px rgba(0,0,0,0.3);
+    font-family: iconfont;
+  }
+  .zy{
+    color:white;
+    text-shadow:1px 1px 2px rgba(0,0,0,0.3);
+    font-family: iconfont;
+  }
 
    @media screen and (max-width: 1000px){
       .banner{
@@ -221,14 +287,20 @@
        font-size: 16px;
        margin-left: 100px;
       }
+      .lxw{
+        height: 600px;
+      }
+      .lxwleft{
+        height: 200px;
+      }
 
 
    }
     @media screen and (max-width: 800px){
-      .banner{
+     .banner{
         height: 330px;    
       }
-      .res{
+     .res{
         padding-top: 10px;
       }
        .reshead .zwtime{
@@ -260,7 +332,34 @@
         margin-top: 100px;
 
       }
+      .lxwleft{
+        height: 100px;
+        background-position: 100px -50px,50px -20px;
+        background-size: 50%,30%;
+        border-right: 0px;
+        border-bottom: 2px solid white;
+      }
+      .lxw{
+        height: 700px;
+      }
+    
+      .tel{
+        height: 400px;
+      }
+      .tel h1{
+        text-align: center;
+      }
 
+   }
+   .hj{
+    position:fixed;
+    width: 45px;
+    height:90px;
+    right:10px;
+    bottom: 50px;
+     background-image:url(img/bj3.png);
+     background-size: 100%;
+     display:none;
    }
 </style>
 <script>
@@ -303,10 +402,33 @@
      //    document.title=$(window).width();
      // })
      //屏幕滚动条
+     var felg=true;
      $(window).scroll(function(){
        document.title=$(this).scrollTop();
        // $('.nav').animate({top:$(this).scrollTop()+30+'px'},40);
         $('.nav').css('top',$(this).scrollTop()+30);
+        if($(this).scrollTop()>=$(window).height()){
+          if(!felg){
+          $('.hj').fadeIn(500,function(){
+            felg=true;
+          })}
+        }else{
+          if(felg){
+            $('.hj').fadeOut(500,function(){
+            felg=false;
+            $('.hj').css('background-image',"url(img/bj3.png)");
+          });
+          }
+          
+        }
+     })
+     /*回到顶部*/
+     $('.hj').mousedown(function(){
+      $(this).css('background-image',"url(img/hj2.png)");
+     }).mouseup(function(){
+      var that=$(this);
+      $(this).css('background-image',"url(img/hj1.png)");
+      $('body,html').animate({scrollTop:0});
      })
      $(window).resize(function(){
       document.title=$(window).width();
@@ -317,9 +439,8 @@
   <ul class="nav">
            <li><a href="#">个人简介</a></li>
            <li><a href="#">个人履历</a></li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
-           <li><a href="#">首页</a></li>
+           <li><a href="file:///E:/apple/3d/cloud.html">我的作品</a></li>
+           <li><a href="http://localhost/jianshu/index.php">个人博客</a></li>
   </ul>
    <div class="header container-fluid">
        <div class="logo">
@@ -356,10 +477,12 @@
                  </span></h1>
              </div>
              <div class="rescon">
-               <p>dkajlgjalgjlajgla</p>
-               <p>dkajlgjalgjlajgla</p>
-               <p>dkajlgjalgjlajgla</p>
-               <p>dkajlgjalgjlajgla</p>
+               <p>个人工作态度端正，有良好进取心，学习能力强，可快速融入团队。
+               </p>
+               <p>熟悉W3C标准，对表现与数据分离、Web语义化等有深刻理解。  </p>
+               <p>深入理解JavaScript面向对象原理、熟悉MVC的设计模式。 </p>
+               <p>理解AJAX运作机制，熟练掌握JQuery等主流JS框架。 </p>
+               <p>能够熟练应用HTML/CSS/JavaScript技术，开发符合W3C标准的网站前端页面。</p>
              </div>
            </li>
            <li>
@@ -368,12 +491,12 @@
                  </span></h1>
              </div>
              <div class="rescon">
-               <p>dkajlgjalgjlajgla</p>
-               <p>dkajlgjalgjlajgla</p>
-               <p>dkajlgjalgjlajgla</p>
-               <p>dkajlgjalgjlajgla</p>
-               <p>dkajlgjalgjlajgla</p>
-               <p>dkajlgjalgjlajgla</p>
+               <p>个人工作态度端正，有良好进取心，学习能力强，可快速融入团队。
+               </p>
+               <p>熟悉W3C标准，对表现与数据分离、Web语义化等有深刻理解。  </p>
+               <p>深入理解JavaScript面向对象原理、熟悉MVC的设计模式。 </p>
+               <p>理解AJAX运作机制，熟练掌握JQuery等主流JS框架。 </p>
+               <p>能够熟练应用HTML/CSS/JavaScript技术，开发符合W3C标准的网站前端页面。</p>
              </div>
            </li>
            <li>
@@ -382,11 +505,12 @@
                  </span></h1>
              </div>
              <div class="rescon">
-                <p>dkajlgjalgjlajgla</p>
-                <p>dkajlgjalgjlajgla</p>
-                <p>dkajlgjalgjlajgla</p>
-                <p>dkajlgjalgjlajgla</p>
-                <p>dkajlgjalgjlajgla</p>
+                <p>个人工作态度端正，有良好进取心，学习能力强，可快速融入团队。
+               </p>
+               <p>熟悉W3C标准，对表现与数据分离、Web语义化等有深刻理解。  </p>
+               <p>深入理解JavaScript面向对象原理、熟悉MVC的设计模式。 </p>
+               <p>理解AJAX运作机制，熟练掌握JQuery等主流JS框架。 </p>
+               <p>能够熟练应用HTML/CSS/JavaScript技术，开发符合W3C标准的网站前端页面。</p>
              </div>
            </li>
            <li>
@@ -395,16 +519,12 @@
                  </span></h1>
              </div>
              <div class="rescon">
-               sdsdsds
-             </div>
-           </li>
-           <li>
-              <div class="reshead">
-                 <h1>山西优逸客 —— <span class='zw'>前端工程师</span><span class='zwtime'>2013.10.10-2013.11.11
-                 </span></h1>
-             </div>
-             <div class="rescon">
-               dsds
+               <p>个人工作态度端正，有良好进取心，学习能力强，可快速融入团队。
+               </p>
+               <p>熟悉W3C标准，对表现与数据分离、Web语义化等有深刻理解。  </p>
+               <p>深入理解JavaScript面向对象原理、熟悉MVC的设计模式。 </p>
+               <p>理解AJAX运作机制，熟练掌握JQuery等主流JS框架。 </p>
+               <p>能够熟练应用HTML/CSS/JavaScript技术，开发符合W3C标准的网站前端页面。</p>
              </div>
            </li>
          </ul>
@@ -415,15 +535,16 @@
            <ul>
              <li>
              <div class="zyjnhead">
-               <h1>javascript</h1>
+               <h1>Javascript</h1>
              </div>
              <div class="zyjncon">
-               精通JavaScript原生编程，对面向对象编程有丰富经验，可进行高效模块化开发，并保证良好复用和维护性。可熟练使用MVC框架(如BackBone.js)进行复杂单页面应用开发。对编写jQuery组件有丰富经验。
+                JavaScript是一种基于对象和事件驱动，并具有安全性的脚本语言。
+                它与HTML,CSS结合起来，用于增强功能，并提高与最终用于之间的交互性能。
              </div>  
              </li>
              <li>
                <div class="zyjnhead">
-               <h1>html5</h1>
+               <h1>Css</h1>
              </div>
              <div class="zyjncon">
                精通JavaScript原生编程，对面向对象编程有丰富经验，可进行高效模块化开发，并保证良好复用和维护性。可熟练使用MVC框架(如BackBone.js)进行复杂单页面应用开发。对编写jQuery组件有丰富经验。
@@ -431,7 +552,55 @@
              </li>
              <li>
               <div class="zyjnhead">
-               <h1>javascript</h1>
+               <h1>NodeJs</h1>
+             </div>
+             <div class="zyjncon">
+               精通JavaScript原生编程，对面向对象编程有丰富经验，可进行高效模块化开发，并保证良好复用和维护性。可熟练使用MVC框架(如BackBone.js)进行复杂单页面应用开发。对编写jQuery组件有丰富经验。
+             </div>  
+             </li>
+             <li>
+              <div class="zyjnhead">
+               <h1>MVC</h1>
+             </div>
+             <div class="zyjncon">
+               精通JavaScript原生编程，对面向对象编程有丰富经验，可进行高效模块化开发，并保证良好复用和维护性。可熟练使用MVC框架(如BackBone.js)进行复杂单页面应用开发。对编写jQuery组件有丰富经验。
+             </div>  
+             </li>
+             <li>
+              <div class="zyjnhead">
+               <h1>移动端</h1>
+             </div>
+             <div class="zyjncon">
+               精通JavaScript原生编程，对面向对象编程有丰富经验，可进行高效模块化开发，并保证良好复用和维护性。可熟练使用MVC框架(如BackBone.js)进行复杂单页面应用开发。对编写jQuery组件有丰富经验。
+             </div>  
+             </li>
+             <li>
+              <div class="zyjnhead">
+               <h1>html5/css3</h1>
+             </div>
+             <div class="zyjncon">
+               精通JavaScript原生编程，对面向对象编程有丰富经验，可进行高效模块化开发，并保证良好复用和维护性。可熟练使用MVC框架(如BackBone.js)进行复杂单页面应用开发。对编写jQuery组件有丰富经验。
+             </div>  
+             </li>
+             <li>
+              <div class="zyjnhead">
+               <h1>PHP</h1>
+             </div>
+             <div class="zyjncon">
+               精通JavaScript原生编程，对面向对象编程有丰富经验，可进行高效模块化开发，并保证良好复用和维护性。可熟练使用MVC框架(如BackBone.js)进行复杂单页面应用开发。对编写jQuery组件有丰富经验。
+             </div>  
+             </li>
+             <li>
+              <div class="zyjnhead">
+               <h1>NodeJs</h1>
+             </div>
+             <div class="zyjncon">
+               精通JavaScript原生编程，对面向对象编程有丰富经验，可进行高效模块化开发，并保证良好复用和维护性。可熟练使用MVC框架(如BackBone.js)进行复杂单页面应用开发。对编写jQuery组件有丰富经验。
+             </div>  
+             </li>
+             <li>
+              <div class="zyjnhead">
+               <h1>响应式布局</h1>
              </div>
              <div class="zyjncon">
                精通JavaScript原生编程，对面向对象编程有丰富经验，可进行高效模块化开发，并保证良好复用和维护性。可熟练使用MVC框架(如BackBone.js)进行复杂单页面应用开发。对编写jQuery组件有丰富经验。
@@ -442,6 +611,25 @@
         <div class="zyjnright col-d-4 col-z-3 col-x-12">
         </div>
    </div>
+   <div class="row lxw">
+       <div class="lxwleft col-d-4 col-z-3 col-x-12">
+             
+       </div>
+       <div class="lxwright col-d-8 col-z-9 col-x-12">
+         <div class="head">
+           <!-- <img src="img/head.jpg" alt=""> -->
+         </div>
+         <div class="tel">
+             <h1 class='phone'> 13934691550</h1>
+             <h1 class='qq'> 786391600</h1>
+             <h1 class='email'> w786391600@163.com</h1>
+             <h1 class='zy'><a href="#"> 我的博客</a></h1>
+         </div>
+       </div>
+   </div>
+</div>
+<div class="hj">
+  
 </div>
 </body>
 </html>

@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'iconfont';  /* project id："189991" */
+  src: url('icon/iconfont.eot');
+  src: url('icon/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('icon/iconfont.woff') format('woff'),
+  url('icon/iconfont.ttf') format('truetype'),
+  url('icon/iconfont.svg#iconfont') format('svg');
+}
+.phone:before{
+	content: '\e615';
+}
+.zy:before{
+	content:'\e62e';
+}
+.qq:before{
+	content:'\e607';
+}
+.email:before{
+	content:'\e70f';
+}
